@@ -14,4 +14,5 @@ const IconButton = ({ children, icon, ...props }) => {
     </button>
   );
 };
-export default IconButton;
+// export default IconButton;
+export default React.memo(IconButton);

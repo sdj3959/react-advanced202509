@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, {useCallback, useState} from 'react';
 
-import IconButton from '../UI/IconButton.jsx';
-import MinusIcon from '../UI/Icons/MinusIcon.jsx';
-import PlusIcon from '../UI/Icons/PlusIcon.jsx';
-import CounterOutput from './CounterOutput.jsx';
-import { log } from '../../log.js';
+import IconButton from '../UI/IconButton';
+import MinusIcon from '../UI/Icons/MinusIcon';
+import PlusIcon from '../UI/Icons/PlusIcon';
+import CounterOutput from './CounterOutput';
+import { log } from '../../log';
 
 const isPrime = (number) => {
   log('Calculating if is prime number', 2, 'other');
@@ -30,13 +30,13 @@ const Counter = ({ initialCount }) => {
 
   const [counter, setCounter] = useState(initialCount);
 
-  const decrementHandler = () => {
+  const decrementHandler = useCallback(() => {
     setCounter((prevCounter) => prevCounter - 1);
-  };
+  }, []);
 
-  const incrementHandler = () => {
+  const incrementHandler = useCallback(() => {
     setCounter((prevCounter) => prevCounter + 1);
-  };
+  }, []);
 
   return (
     <section className='counter'>
@@ -60,5 +60,6 @@ const Counter = ({ initialCount }) => {
     </section>
   );
 };
+
 // export default React.memo(Counter);
 export default Counter;
