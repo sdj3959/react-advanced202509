@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 
 import IconButton from '../UI/IconButton';
 import MinusIcon from '../UI/Icons/MinusIcon';
@@ -34,6 +34,10 @@ const Counter = ({ initialCount }) => {
   // => [{ id: 'x1', value: -1 }, { id: 'x2', value: 1 }, ...]
   const [counterChanges, setCounterChanges]
     = useState([{id: Math.random().toString(), value: initialCount}]);
+
+  // useEffect(() => {
+  //   setCounterChanges([{id: Math.random().toString(), value: initialCount}])
+  // }, [initialCount]);
 
 
   // const [counter, setCounter] = useState(initialCount);
